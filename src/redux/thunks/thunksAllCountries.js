@@ -1,9 +1,8 @@
-import { useSelector } from "react-redux"
 import {setAllCountries, setFilter} from "../countrySlice"
 import axios from 'axios'
 
 
-const {data}= await axios.get(`http://localhost:3001/allCountries`)
+const {data} =   await axios.get(`https://back-countries.up.railway.app/allCountries`)
 export const getAllCountry =()=>{
     return async (dispatch, getAllCountry)=>{
         try {

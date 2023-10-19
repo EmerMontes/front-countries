@@ -12,7 +12,7 @@ export const Detail =  ()=>{
 
     useEffect ( ()=> {
       try{
-          axios(`http://localhost:3001/countries/${ID}`).then(({data})=>{
+          axios(`/countries/${ID}`).then(({data})=>{
             if (data.city) {
                 setCountry(data.city)
             }

@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux'
 
 function App() {
    const {isDarkMode}=useSelector((state)=>state.country)
-   console.log(isDarkMode)
+   
 
   return (
   <div className={isDarkMode? 'contentLigth':'contentDark'}>

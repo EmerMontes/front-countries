@@ -85,7 +85,7 @@ export const ActivityCreate =()=>{
 
         try {
           if (isEditing) {
-            await axios.put(`http://localhost:3001/activities/${activity.ID}`,actividad)
+            await axios.put(`/activities/${activity.ID}`,actividad)
 
             const result = window.confirm('Edited activity, please come back to create a new one ');
 
@@ -95,9 +95,9 @@ export const ActivityCreate =()=>{
               return  navigate('/home') 
              }
           }else{
-            await axios.post('http://localhost:3001/activities',actividad)
+            await axios.post('/activities',actividad)
           }
-          console.log('cumplido')   
+          
         }catch(error) {
             alert('no se puede crear la actividad')
         }

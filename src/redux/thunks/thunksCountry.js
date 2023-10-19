@@ -5,7 +5,7 @@ export const getCountryByName=(value, page=0)=>{
  
     return async (dispatch, getCountryByName)=>{
         try {
-            const {data} = await axios.get(`http://localhost:3001/countries/name?name=${value}`)
+            const {data} = await axios.get(`/countries/name?name=${value}`)
              dispatch( setCountryByName({country: data, page: page}))
              dispatch(getError(''))   
         } catch (error) {
@@ -19,7 +19,7 @@ export const getCountry =(page=1)=>{
  
     return async (dispatch, getCountry)=>{
         try {
-            const {data}= await axios.get(`http://localhost:3001/countries?page=${page}`)
+            const {data}= await axios.get(`/countries?page=${page}`)
             dispatch( setCountry({country: data,page: page}))
         } catch (error) {
             console.log('error')   

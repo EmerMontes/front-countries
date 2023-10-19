@@ -13,7 +13,7 @@ export const AllActivity = ()=>{
 
     useEffect ( ()=> {
         try{
-          axios.get(`http://localhost:3001/activities`).then(({data})=>{
+          axios.get(`/activities`).then(({data})=>{
             setAllActivity(data)
          })
         }catch(error){
@@ -23,7 +23,7 @@ export const AllActivity = ()=>{
 
     const deleteActivity = async (ID)=>{
        try {
-          await axios.delete(`http://localhost:3001/activities/${ID}`)
+          await axios.delete(`/activities/${ID}`)
           setAllActivity((prevActivities) => prevActivities.filter((activity) => activity.ID !== ID));
        }catch (error) {
          alert('Delete falled')
@@ -31,7 +31,7 @@ export const AllActivity = ()=>{
    }
    const editActivity = async (ID)=>{
       try {
-       const {data} = await axios.get(`http://localhost:3001/activities/${ID}`)
+       const {data} = await axios.get(`/activities/${ID}`)
        console.log(data)
        navigate('/createActivity', { state: {data} });
 
@@ -56,7 +56,7 @@ export const AllActivity = ()=>{
        ? <h1>No activity,<br /> please create one</h1> 
        : allActivities.map(activity =>{
         return (
-            <div className={style.card}>
+            <div key={activity.ID} className={style.card}>
                    <div className={style.circle}></div>
                    <div className={style.circle}></div>
                   <div className={style.cardInner}>
